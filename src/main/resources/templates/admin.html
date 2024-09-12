@@ -49,7 +49,7 @@
         <div class="col-md-10 col-sm-9">
             <div class="tab-content" id="v-pills-tabContent">
                 <div class="tab-pane fade show active" id="allUsers" role="tabpanel" aria-labelledby="home-tab">
-                    <h1>Admin panel</h1>
+                    <h1>Управление учеными записями</h1>
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
@@ -138,7 +138,6 @@
                      tabindex="0">
                     <h1>Информация о пользователе</h1>
                     <table class="table table-striped">
-                        <!--                        <caption>About user</caption>-->
                         <thead>
                         <tr>
                             <th scope="col">ID</th>
@@ -163,39 +162,38 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="deleteModalLabel">Delete</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                <h5 class="modal-title" id="modalDeleteLabel">Удаление пользователя</h5>
+                <button type="button" class="btn-close" aria-label="Закрыть"
+                        data-dismiss="modal"></button>
             </div>
             <form id="deleteUser">
-                <div class="modal-body col-md text-center">
-                    <div class="d-grid gap-2 col-4 mx-auto p-1 text-center">
-                        <br>
+                <div class="modal-body">
+                    <div class="d-grid gap-2 col-8 mx-auto p-1 text-center">
+
                         <label for="idDel"><b>ID</b></label>
                         <input class="form-control" id="idDel" disabled/>
-                        <br>
+
                         <label for="firstNameDel"><b>Name</b></label>
                         <input class="form-control" id="firstNameDel" disabled/>
-                        <br>
-                        <label for="lastNameDel"><b>Last Name</b></label>
+
+                        <label for="lastNameDel"><b>Surname</b></label>
                         <input class="form-control" id="lastNameDel" disabled/>
-                        <br>
+
                         <label for="ageDel"><b>Age</b></label>
                         <input class="form-control" id="ageDel" disabled/>
-                        <br>
-                        <label for="usernameDel"><b>Username</b></label>
+
+                        <label for="usernameDel"><b>Login</b></label>
                         <input class="form-control" id="usernameDel" disabled/>
-                        <br>
+
                         <label for="passwordDel"><b>Password</b></label>
                         <input type="password" class="form-control" id="passwordDel" disabled/>
-                        <br>
+
                         <label for="roles" class="form-label">Role</label>
                         <select class="form-select" name="rolesDel"
                                 multiple id="rolesDel" size="2" disabled>
                             <option id="rolesDel1" value="1">ADMIN</option>
                             <option id="rolesDel2" value="2">USER</option>
                         </select>
-                        <br><br>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-danger">
@@ -216,46 +214,45 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="editModalLabel">Edit</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                <h5 class="modal-title" id="modalStaticBackdropLabel">Редактирование пользователя</h5>
+                <button type="button" class="btn-close" aria-label="Закрыть"
+                        data-dismiss="modal"></button>
             </div>
             <form id="editUser">
-                <div class="modal-body col-md text-center">
-                    <div class="d-grid gap-2 col-4 mx-auto p-1 text-center">
-                        <br>
+                <div class="modal-body">
+                    <div class="d-grid gap-2 col-8 mx-auto p-1 text-center">
                         <label for="idRed"><b>ID</b></label>
                         <input class="form-control" id="idRed" name="id" readonly="readonly"/>
-                        <label for="firstNameRed"><b>First Name</b></label>
+                        <label for="firstNameRed"><b>Name</b></label>
                         <input class="form-control" id="firstNameRed" name="firstName"/>
-                        <br>
-                        <label for="lastNameRed"><b>Last Name</b></label>
+
+                        <label for="lastNameRed"><b>Surname</b></label>
                         <input class="form-control" id="lastNameRed" name="lastName"/>
-                        <br>
+
                         <label for="ageRed"><b>Age</b></label>
                         <input class="form-control" id="ageRed" name="age"/>
-                        <br>
-                        <label for="usernameRed"><b>Username</b></label>
+
+                        <label for="usernameRed"><b>Login</b></label>
                         <input class="form-control" id="usernameRed" name="username"/>
-                        <br>
+
                         <label for="passwordRed"><b>Password</b></label>
                         <input class="form-control" type="password" id="passwordRed" name="password"/>
-                        <br>
+
                         <label for="rolesRed" class="form-label">Role</label>
                         <select class="form-select" multiple name="roles"
                                 id="rolesRed" size="2" required>
                             <option id="rolesRed1" value="1">ADMIN</option>
                             <option id="rolesRed2" value="2">USER</option>
                         </select>
-                        <br><br>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">
-                            Edit
-                        </button>
-                        <button type="button" class="btn btn-outline-secondary"
-                                data-bs-dismiss="modal">Close
-                        </button>
+                            <button type="submit" class="btn btn-primary">
+                                Edit
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary"
+                                    data-bs-dismiss="modal">Close
+                            </button>
+
                     </div>
                 </div>
             </form>
