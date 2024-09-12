@@ -6,7 +6,6 @@ import ru.my.rest.springboot.models.Role;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -17,8 +16,7 @@ public class RoleDaoImpl implements RoleDAO {
 
     @Override
     public List<Role> findAll() {
-        List<Role> roleList = entityManager.createQuery("SELECT r FROM Role r", Role.class).getResultList();
-        return new ArrayList<>(roleList);
+        return entityManager.createQuery("SELECT r FROM Role r", Role.class).getResultList();
     }
 
     @Override

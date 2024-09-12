@@ -1,7 +1,6 @@
 package ru.my.rest.springboot.controller;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.my.rest.springboot.models.User;
 import ru.my.rest.springboot.services.UserService;
 
-import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 
@@ -25,7 +23,6 @@ public class AdminRestController {
 
     private final UserService userService;
 
-    @Autowired
     public AdminRestController(UserService userServiceImpl) {
         this.userService = userServiceImpl;
     }
@@ -37,18 +34,17 @@ public class AdminRestController {
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable("id") int id) {
-        User user = userService.findById(id);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<HttpStatus> addNewUser(@RequestBody @Valid User newUser) {
+    public ResponseEntity<HttpStatus> addNewUser(@RequestBody User newUser) {
         userService.save(newUser);
         return ResponseEntity.ok(HttpStatus.CREATED);
     }
 
     @PutMapping
-    public ResponseEntity<HttpStatus> updateUser(@RequestBody @Valid User userFromWebPage) {
+    public ResponseEntity<HttpStatus> updateUser(@RequestBody User userFromWebPage) {
         userService.update(userFromWebPage);
         return ResponseEntity.ok(HttpStatus.OK);
     }
