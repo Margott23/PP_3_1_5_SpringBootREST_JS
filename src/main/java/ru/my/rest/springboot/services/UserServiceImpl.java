@@ -27,9 +27,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     @Transactional
-    public void save(User user) {
+    public User save(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        roleService.updateRoleForUser(user);
         userRepository.save(user);
+        return user;
     }
 
     @Override
@@ -39,8 +41,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     @Transactional
-    public void delete(int id) {
+    public User delete(int id) {
         userRepository.deleteById(id);
+        return userRepository.findById(id);
     }
 
     @Override
@@ -55,9 +58,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     @Transactional
-    public void update(User updateUser) {
+    public User update(User updateUser) {
         updateUser.setPassword(passwordEncoder.encode(updateUser.getPassword()));
         userRepository.updateUser(updateUser);
+        return updateUser;
     }
 
     @Override

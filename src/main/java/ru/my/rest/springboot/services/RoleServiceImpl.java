@@ -6,6 +6,7 @@ import ru.my.rest.springboot.dao.RoleDAO;
 import ru.my.rest.springboot.models.Role;
 import ru.my.rest.springboot.models.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -13,6 +14,21 @@ import java.util.List;
 public class RoleServiceImpl implements RoleService {
 
     private final RoleDAO roleRepository;
+
+    @Transactional
+    public void updateRoleForUser(User user) {
+        List<Role> roles = new ArrayList<>();
+        if (!user.getRoles().isEmpty()) {
+            for (Role role : user.getRoles()) {
+                Role rRole = roleRepository.findByRole(role.getRoleName());
+                roles.add(rRole);
+            }
+        } else {
+            Role rRole = roleRepository.findByRole("ROLE_USER");
+            roles.add(rRole);
+        }
+        user.setRoles(roles);
+    }
 
     public RoleServiceImpl(RoleDAO roleRepository) {
         this.roleRepository = roleRepository;

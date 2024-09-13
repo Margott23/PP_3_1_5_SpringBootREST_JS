@@ -9,11 +9,11 @@ public interface UserService {
 
     User findById(int id);
 
-    void save(User user);
+    User save(User user);
 
-    void update(User updateUser);
+    User update(User updateUser);
 
-    void delete(int id);
+    User delete(int id);
 
     User findByLogin(String login);
 

@@ -7,6 +7,8 @@ import ru.my.rest.springboot.models.User;
 import java.util.List;
 
 public interface RoleService {
+    void updateRoleForUser(User user);
+
     Role getRoleById(Long id);
 
     Role getRoleByName(String name);
@@ -15,7 +17,7 @@ public interface RoleService {
 
     Role saveRole(Role role);
 
-    public void addDefaultRoles();
+    void addDefaultRoles();
 
-    public void updateDefaultRolesToDefaultUser(User admin);
+    void updateDefaultRolesToDefaultUser(User admin);
 }
