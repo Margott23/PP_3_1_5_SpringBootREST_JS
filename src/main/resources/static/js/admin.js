@@ -201,7 +201,7 @@ function showEditModal(id) {
             document.getElementById('lastNameRed').setAttribute('value', editUser.lastName);
             document.getElementById('ageRed').setAttribute('value', editUser.age);
             document.getElementById('usernameRed').setAttribute('value', editUser.username);
-            document.getElementById('passwordRed').setAttribute('value', editUser.password);
+            document.getElementById('passwordRed').setAttribute('value', '');
             if ((editUser.roles.map(role => role.id)) === 1 && ((editUser.roles.map(role => role.id)) === 2)) {
                 document.getElementById('rolesRed1').setAttribute('selected', 'true');
                 document.getElementById('rolesRed2').setAttribute('selected', 'true');
@@ -218,6 +218,11 @@ function showEditModal(id) {
 
 function submitFormEditUser(event) {
     event.preventDefault();
+    const password = document.getElementById('passwordRed').value;
+    if (!password) {
+        alert('Поле пароля не может быть пустым. Введите старый пароль или обновите его.');
+        return;
+    }
     let redUserForm = new FormData(event.target);
     let user = {
         id: redUserForm.get('id'),
@@ -234,7 +239,8 @@ function submitFormEditUser(event) {
         headers: {
             'Content-Type': 'application/json',
         },
-    });
+    }
+    );
     fetch(request).then(
         function () {
             getUsers();
