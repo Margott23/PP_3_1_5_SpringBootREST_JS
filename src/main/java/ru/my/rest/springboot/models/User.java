@@ -50,9 +50,8 @@ public class User implements UserDetails {
 
     @ManyToMany(cascade =
             {CascadeType.PERSIST,
-            CascadeType.MERGE,
-            CascadeType.REMOVE})
-    @Fetch(FetchMode.JOIN)
+                    CascadeType.MERGE})
+    @Fetch(FetchMode.JOIN) //связанные сущности будут загружены в одном запросе к базе данных, используя SQL JOIN(убираем N+1)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles = new ArrayList<>();
