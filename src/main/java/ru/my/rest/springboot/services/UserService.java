@@ -17,7 +17,5 @@ public interface UserService {
 
     User findByLogin(String login);
 
-//    User getAuthUser();
-
     void saveDefaultUser(User admin);
 }
