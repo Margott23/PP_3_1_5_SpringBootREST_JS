@@ -115,6 +115,12 @@ document.getElementById('newUser').addEventListener('submit', addNewUser);
 function addNewUser(form) {
     form.preventDefault();
     let newUserForm = new FormData(form.target);
+    let password = newUserForm.get('password');
+
+    if (!password) {
+        alert('Поле пароля не может быть пустым! Введите пароль.');
+        return;
+    }
     let user = {
         firstName: newUserForm.get('firstName'),
         lastName: newUserForm.get('lastName'),
@@ -156,7 +162,7 @@ function showDeleteModal(id) {
             document.getElementById('lastNameDel').setAttribute('value', deleteUser.lastName);
             document.getElementById('ageDel').setAttribute('value', deleteUser.age);
             document.getElementById('usernameDel').setAttribute('value', deleteUser.username);
-            document.getElementById('passwordDel').setAttribute('value', deleteUser.password);
+            document.getElementById('passwordDel').setAttribute('value', '********');
             if (getRoles(deleteUser.roles).includes("USER") && getRoles(deleteUser.roles).includes("ADMIN")) {
                 document.getElementById('rolesDel1').setAttribute('selected', 'true');
                 document.getElementById('rolesDel2').setAttribute('selected', 'true');
@@ -201,7 +207,7 @@ function showEditModal(id) {
             document.getElementById('lastNameRed').setAttribute('value', editUser.lastName);
             document.getElementById('ageRed').setAttribute('value', editUser.age);
             document.getElementById('usernameRed').setAttribute('value', editUser.username);
-            document.getElementById('passwordRed').setAttribute('value', '');
+            document.getElementById('passwordRed').setAttribute('value', '********'); //вместо editUser.password, чтобы всегда отображалось ********
             if ((editUser.roles.map(role => role.id)) === 1 && ((editUser.roles.map(role => role.id)) === 2)) {
                 document.getElementById('rolesRed1').setAttribute('selected', 'true');
                 document.getElementById('rolesRed2').setAttribute('selected', 'true');

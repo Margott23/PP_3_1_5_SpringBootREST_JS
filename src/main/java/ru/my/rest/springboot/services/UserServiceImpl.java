@@ -59,7 +59,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     @Transactional
     public User update(User updateUser) {
-        updateUser.setPassword(passwordEncoder.encode(updateUser.getPassword()));
+        updateUser.setPassword(userRepository.findById(updateUser.getId()).getPassword()); //edit password disabled in html
+        roleService.updateRoleForUser(updateUser);
         userRepository.updateUser(updateUser);
         return updateUser;
     }

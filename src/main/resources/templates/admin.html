@@ -89,9 +89,9 @@
                         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"
                              tabindex="0">
                             <div class="card rounded-0">
-                                <h5 class="card-header" style="color: #505050">Добавление нового пользователя</h5>
                                 <div class="form-justify-content-center mx-auto col-4">
                                     <div class="card-body text-center">
+                                        <h5 style="color: #505050">Добавление нового пользователя</h5>
                                         <form id="newUser">
                                             <label for="firstName" class="form-label">Name</label>
                                             <input type="text" class="form-control" id="firstName" name="firstName"
@@ -163,8 +163,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalDeleteLabel">Удаление пользователя</h5>
-                <button type="button" class="btn-close" aria-label="Закрыть"
-                        data-dismiss="modal"></button>
             </div>
             <form id="deleteUser">
                 <div class="modal-body">
@@ -215,14 +213,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalStaticBackdropLabel">Редактирование пользователя</h5>
-                <button type="button" class="btn-close" aria-label="Закрыть"
-                        data-dismiss="modal"></button>
             </div>
             <form id="editUser">
                 <div class="modal-body">
                     <div class="d-grid gap-2 col-8 mx-auto p-1 text-center">
                         <label for="idRed"><b>ID</b></label>
-                        <input class="form-control" id="idRed" name="id" readonly="readonly"/>
+                        <input class="form-control" id="idRed" name="id" style="background-color: #f2f2f2; color: #999;" readonly="readonly"/>
+
                         <label for="firstNameRed"><b>Name</b></label>
                         <input class="form-control" id="firstNameRed" name="firstName"/>
 
@@ -236,7 +233,7 @@
                         <input class="form-control" id="usernameRed" name="username"/>
 
                         <label for="passwordRed"><b>Password</b></label>
-                        <input class="form-control" type="password" id="passwordRed" name="password"/>
+                        <input class="form-control" type="password" id="passwordRed" name="password" style="background-color: #f2f2f2; color: #999;" readonly="readonly"/>
 
                         <label for="rolesRed" class="form-label">Role</label>
                         <select class="form-select" multiple name="roles"
